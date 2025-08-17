@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>💰 Mon Cacao - Revenus & Bénéfices</title>
+    <link rel="stylesheet" href="css/dashboard.css">
+    <link rel="stylesheet" href="css/revenue.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-container">
+            <div class="header-left">
+                <div class="logo">
+                    <div class="logo-icon">
+                        <i class="fas fa-seedling"></i>
+                    </div>
+                    <div class="logo-text">
+                        <i class="fas fa-coins"></i>
+                        <span>Mon Cacao</span>
+                    </div>
+                </div>
+            </div>
+            <div class="header-right">
+                <div class="status-indicator">
+                    <div class="status-dot online"></div>
+                    <span>En ligne</span>
+                </div>
+                <div class="user-info">
+                    <i class="fas fa-user"></i>
+                    <span>Agriculteur</span>
+                </div>
+                <button class="logout-btn" onclick="logout()">
+                    <i class="fas fa-sign-out-alt"></i>
+                    Déconnexion
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="container">
+            <!-- Page Title -->
+            <div class="page-title">
+                <i class="fas fa-coins"></i>
+                <h1>Revenus & Bénéfices</h1>
+            </div>
+
+            <!-- Revenue Overview -->
+            <div class="revenue-overview">
+                <div class="revenue-card primary">
+                    <div class="revenue-icon">
+                        <i class="fas fa-money-bill-wave"></i>
+                    </div>
+                    <div class="revenue-content">
+                        <h3>Revenu Estimé</h3>
+                        <span class="revenue-value" id="revenue-value">937,500 FCFA</span>
+                        <span class="revenue-change positive">+8.3% vs mois dernier</span>
+                    </div>
+                </div>
+
+                <div class="revenue-card success">
+                    <div class="revenue-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <div class="revenue-content">
+                        <h3>Bénéfice Estimé</h3>
+                        <span class="revenue-value" id="benefit-value">487,500 FCFA</span>
+                        <span class="revenue-change positive">+15.2% vs mois dernier</span>
+                    </div>
+                </div>
+
+                <div class="revenue-card info">
+                    <div class="revenue-icon">
+                        <i class="fas fa-percentage"></i>
+                    </div>
+                    <div class="revenue-content">
+                        <h3>Marge Bénéficiaire</h3>
+                        <span class="revenue-value" id="margin-value">52.0%</span>
+                        <span class="revenue-change positive">+3.5% vs mois dernier</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Production Analysis -->
+            <div class="analysis-section">
+                <h2>Analyse de Production</h2>
+                <div class="analysis-grid">
+                    <div class="analysis-card">
+                        <h3>Productivité Actuelle</h3>
+                        <div class="metric">
+                            <span class="metric-value" id="productivity-value">1.25 t/ha</span>
+                            <span class="metric-label">Tonnes par hectare</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 75%"></div>
+                        </div>
+                        <p class="metric-description">Objectif: 1.5 t/ha</p>
+                    </div>
+
+                    <div class="analysis-card">
+                        <h3>Prix de Vente</h3>
+                        <div class="metric">
+                            <span class="metric-value" id="price-value">750 FCFA/kg</span>
+                            <span class="metric-label">Prix par kilogramme</span>
+                        </div>
+                        <div class="price-trend">
+                            <i class="fas fa-arrow-up"></i>
+                            <span>+5% ce mois</span>
+                        </div>
+                    </div>
+
+                    <div class="analysis-card">
+                        <h3>Coût de Production</h3>
+                        <div class="metric">
+                            <span class="metric-value" id="cost-value">450,000 FCFA/ha</span>
+                            <span class="metric-label">Coût par hectare</span>
+                        </div>
+                        <div class="cost-breakdown">
+                            <div class="cost-item">
+                                <span>Engrais</span>
+                                <span>35%</span>
+                            </div>
+                            <div class="cost-item">
+                                <span>Main d'œuvre</span>
+                                <span>25%</span>
+                            </div>
+                            <div class="cost-item">
+                                <span>Pesticides</span>
+                                <span>20%</span>
+                            </div>
+                            <div class="cost-item">
+                                <span>Autres</span>
+                                <span>20%</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Improvement Suggestions -->
+            <div class="improvements-section">
+                <h2>🚀 Pistes d'Amélioration</h2>
+                <div class="improvements-grid">
+                    <div class="improvement-card high-priority">
+                        <div class="improvement-header">
+                            <i class="fas fa-arrow-up"></i>
+                            <h3>Optimisation des Engrais</h3>
+                            <span class="priority-badge">Priorité Haute</span>
+                        </div>
+                        <p>Augmenter l'utilisation d'engrais organiques et optimiser les doses</p>
+                        <div class="improvement-impact">
+                            <span class="impact-label">Impact estimé:</span>
+                            <span class="impact-value">+15% productivité</span>
+                        </div>
+                        <div class="improvement-cost">
+                            <span class="cost-label">Coût estimé:</span>
+                            <span class="cost-value">+50,000 FCFA/ha</span>
+                        </div>
+                        <button class="improvement-btn" onclick="showImprovementDetails('fertilizer')">
+                            Voir les détails
+                        </button>
+                    </div>
+
+                    <div class="improvement-card medium-priority">
+                        <div class="improvement-header">
+                            <i class="fas fa-leaf"></i>
+                            <h3>Agroforesterie</h3>
+                            <span class="priority-badge">Priorité Moyenne</span>
+                        </div>
+                        <p>Introduire des arbres d'ombrage pour améliorer la résilience</p>
+                        <div class="improvement-impact">
+                            <span class="impact-label">Impact estimé:</span>
+                            <span class="impact-value">+10% productivité</span>
+                        </div>
+                        <div class="improvement-cost">
+                            <span class="cost-label">Coût estimé:</span>
+                            <span class="cost-value">+30,000 FCFA/ha</span>
+                        </div>
+                        <button class="improvement-btn" onclick="showImprovementDetails('agroforestry')">
+                            Voir les détails
+                        </button>
+                    </div>
+
+                    <div class="improvement-card low-priority">
+                        <div class="improvement-header">
+                            <i class="fas fa-tint"></i>
+                            <h3>Irrigation Optimisée</h3>
+                            <span class="priority-badge">Priorité Basse</span>
+                        </div>
+                        <p>Système d'irrigation goutte-à-goutte pour les périodes sèches</p>
+                        <div class="improvement-impact">
+                            <span class="impact-label">Impact estimé:</span>
+                            <span class="impact-value">+8% productivité</span>
+                        </div>
+                        <div class="improvement-cost">
+                            <span class="cost-label">Coût estimé:</span>
+                            <span class="cost-value">+200,000 FCFA/ha</span>
+                        </div>
+                        <button class="improvement-btn" onclick="showImprovementDetails('irrigation')">
+                            Voir les détails
+                        </button>
+                    </div>
+
+                    <div class="improvement-card medium-priority">
+                        <div class="improvement-header">
+                            <i class="fas fa-seedling"></i>
+                            <h3>Variétés Résistantes</h3>
+                            <span class="priority-badge">Priorité Moyenne</span>
+                        </div>
+                        <p>Planter des variétés de cacao résistantes aux maladies</p>
+                        <div class="improvement-impact">
+                            <span class="impact-label">Impact estimé:</span>
+                            <span class="impact-value">+12% productivité</span>
+                        </div>
+                        <div class="improvement-cost">
+                            <span class="cost-label">Coût estimé:</span>
+                            <span class="cost-value">+80,000 FCFA/ha</span>
+                        </div>
+                        <button class="improvement-btn" onclick="showImprovementDetails('varieties')">
+                            Voir les détails
+                        </button>
+                    </div>
+
+                    <div class="improvement-card high-priority">
+                        <div class="improvement-header">
+                            <i class="fas fa-bug"></i>
+                            <h3>Gestion Intégrée</h3>
+                            <span class="priority-badge">Priorité Haute</span>
+                        </div>
+                        <p>Lutte biologique contre les ravageurs et maladies</p>
+                        <div class="improvement-impact">
+                            <span class="impact-label">Impact estimé:</span>
+                            <span class="impact-value">+18% productivité</span>
+                        </div>
+                        <div class="improvement-cost">
+                            <span class="cost-label">Coût estimé:</span>
+                            <span class="cost-value">+60,000 FCFA/ha</span>
+                        </div>
+                        <button class="improvement-btn" onclick="showImprovementDetails('pest-control')">
+                            Voir les détails
+                        </button>
+                    </div>
+
+                    <div class="improvement-card low-priority">
+                        <div class="improvement-header">
+                            <i class="fas fa-chart-bar"></i>
+                            <h3>Formation Continue</h3>
+                            <span class="priority-badge">Priorité Basse</span>
+                        </div>
+                        <p>Formation aux bonnes pratiques agricoles</p>
+                        <div class="improvement-impact">
+                            <span class="impact-label">Impact estimé:</span>
+                            <span class="impact-value">+5% productivité</span>
+                        </div>
+                        <div class="improvement-cost">
+                            <span class="cost-label">Coût estimé:</span>
+                            <span class="cost-value">+25,000 FCFA/an</span>
+                        </div>
+                        <button class="improvement-btn" onclick="showImprovementDetails('training')">
+                            Voir les détails
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ROI Calculator -->
+            <div class="roi-section">
+                <h2>📊 Calculateur de ROI</h2>
+                <div class="roi-calculator">
+                    <div class="roi-inputs">
+                        <div class="input-group">
+                            <label for="investment-amount">Montant d'investissement (FCFA)</label>
+                            <input type="number" id="investment-amount" placeholder="100000" value="100000">
+                        </div>
+                        <div class="input-group">
+                            <label for="expected-increase">Augmentation attendue (%)</label>
+                            <input type="number" id="expected-increase" placeholder="15" value="15">
+                        </div>
+                        <button class="calculate-btn" onclick="calculateROI()">
+                            <i class="fas fa-calculator"></i>
+                            Calculer le ROI
+                        </button>
+                    </div>
+                    <div class="roi-results" id="roi-results">
+                        <div class="roi-result">
+                            <span class="result-label">ROI estimé:</span>
+                            <span class="result-value" id="roi-value">--</span>
+                        </div>
+                        <div class="roi-result">
+                            <span class="result-label">Gain supplémentaire:</span>
+                            <span class="result-value" id="additional-gain">--</span>
+                        </div>
+                        <div class="roi-result">
+                            <span class="result-label">Temps de retour:</span>
+                            <span class="result-value" id="payback-time">--</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Navigation Bottom -->
+    <nav class="bottom-nav">
+        <div class="nav-item" onclick="navigateTo('dashboard')">
+            <i class="fas fa-home"></i>
+            <span>Accueil</span>
+        </div>
+        <div class="nav-item" onclick="navigateTo('prediction')">
+            <i class="fas fa-chart-line"></i>
+            <span>Prédiction</span>
+        </div>
+        <div class="nav-item" onclick="navigateTo('production')">
+            <i class="fas fa-leaf"></i>
+            <span>Production</span>
+        </div>
+        <div class="nav-item active" onclick="navigateTo('revenue')">
+            <i class="fas fa-coins"></i>
+            <span>Revenus</span>
+        </div>
+        
+    </nav>
+
+    <script src="js/dashboard.js"></script>
+    <script src="js/revenue.js"></script>
+</body>
+</html>

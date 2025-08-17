@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enregistrer - Mon Cacao</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/modern-banner.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="js/modern-banner.js"></script>
+
+    <script>
+        >
+
+    <script>
+        function lireTexte(texte) {
+            if ('speechSynthesis' in window) {
+                const utterance = new SpeechSynthesisUtterance(texte);
+                utterance.lang = 'fr-FR';
+                utterance.rate = 0.8;
+                speechSynthesis.speak(utterance);
+            }
+        }
+        
+        document.addEventListener('DOMContentLoaded', function() {
+            // Boutons audio seulement sur les labels (questions)
+            const labels = document.querySelectorAll('label');
+            labels.forEach(label => {
+                if (!label.querySelector('.btn-audio')) {
+                    const btnAudio = document.createElement('button');
+                    btnAudio.className = 'btn-audio';
+                    btnAudio.innerHTML = '<i class="fas fa-volume-up"></i>';
+                    btnAudio.title = 'Écouter';
+                    btnAudio.onclick = () => lireTexte(label.textContent);
+                    label.appendChild(btnAudio);
+                }
+            });
+        });
+    </script>
+</head>
+<body>
+    <!-- Header -->
+    <header class="app-header">
+        <div class="header-content">
+            <div class="header-logo">
+                <i class="fas fa-seedling"></i>
+                <span>Mon Cacao</span>
+            </div>
+            <div class="header-actions">
+                <div class="status-indicator">
+                    <i class="fas fa-circle"></i>
+                    <span>En ligne</span>
+                </div>
+                <a href="index.html" class="btn-back">
+                    <i class="fas fa-arrow-left"></i>
+                    Retour
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Section Enregistrer des Données -->
+    <section class="data-submission-section">
+        <div class="content-container">
+            <div class="section-header">
+                <h2>📊 Enregistrer vos données annuelles réelles</h2>
+                <p>Partagez vos données pour améliorer la précision de nos prédictions</p>
+            </div>
+            
+            <!-- Instructions -->
+            <div class="instructions-box">
+                <div class="instructions-header">
+                    <i class="fas fa-file-alt"></i>
+                    <h4>Instructions</h4>
+                </div>
+                <p>Pour améliorer la précision de notre modèle, merci de soumettre vos données réelles. Les champs sont organisés en 3 catégories :</p>
+                <div class="categories-info">
+                    <div class="category-item">
+                        <i class="fas fa-seedling"></i>
+                        <span><strong>Agronomique</strong> - Caractéristiques de votre plantation</span>
+                    </div>
+                    <div class="category-item">
+                        <i class="fas fa-coins"></i>
+                        <span><strong>Économique</strong> - Aspects financiers</span>
+                    </div>
+                    <div class="category-item">
+                        <i class="fas fa-globe"></i>
+                        <span><strong>Géographique & Climatique</strong> - Localisation et conditions</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Date de soumission -->
+            <div class="submission-date">
+                <label>Date de soumission</label>
+                <div class="date-display" id="submission-date-main">2025/08/16</div>
+            </div>
+
+            <!-- Onglets -->
+            <div class="tabs-container">
+                <div class="tabs">
+                    <button class="tab-btn active" onclick="switchTabMain('agronomic')">
+                        <i class="fas fa-seedling"></i>
+                        Données Agronomiques
+                    </button>
+                    <button class="tab-btn" onclick="switchTabMain('economic')">
+                        <i class="fas fa-coins"></i>
+                        Données Économiques
+                    </button>
+                    <button class="tab-btn" onclick="switchTabMain('geographic')">
+                        <i class="fas fa-globe"></i>
+                        Données Géo-Climatiques
+                    </button>
+                </div>
+
+                <!-- Contenu des onglets -->
+                <div class="tab-content">
+                    <!-- Onglet Agronomique -->
+                    <div id="agronomic-tab-main" class="tab-pane active">
+                        <div class="section-title">
+                            <i class="fas fa-seedling"></i>
+                            <h4>Caractéristiques de la plantation</h4>
+                        </div>
+                        
+                        <div class="form-grid">
+                            <div class="form-column">
+                                <div class="form-group">
+                                    <label for="age_verger_main">Age du verger (années)</label>
+                                    <div class="number-input">
+                                        <button type="button" onclick="decrementValueMain('age_verger_main')">-</button>
+                                        <input type="number" id="age_verger_main" value="0.0" step="0.1" min="0">
+                                        <button type="button" onclick="incrementValueMain('age_verger_main')">+</button>
+                                    </div>
+                                    <i class="fas fa-info-circle info-icon"></i>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="agroforest_main">J'ai des arbres avec le cacao</label>
+                                    <select id="agroforest_main">
+                                        <option value="Oui">Oui</option>
+                                        <option value="Non">Non</option>
+                                    </select>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="engrais_main">Utilisation d'engrais</label>
+                                    <select id="engrais_main">
+                                        <option value="Oui">Oui</option>
+                                        <option value="Non">Non</option>
+                                    </select>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="fumier_main">Utilisation de fumier/compost</label>
+                                    <select id="fumier_main">
+                                        <option value="Oui">Oui</option>
+                                        <option value="Non">Non</option>
+                                    </select>
+                                </div>
+                            </div>
+                            
+                            <div class="form-column">
+                                <div class="form-group">
+                                    <label for="maladie_main">Mes plants sont malades</label>
+                                    <select id="maladie_main">
+                                        <option value="Non">Non</option>
+                                        <option value="oui">Oui</option>
+                                        <option value="Un peu">Un peu</option>
+                                    </select>
+                                    <i class="fas fa-info-circle info-icon"></i>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="herbicide_main">J'utilise des produits contre les mauvaises herbes</label>
+                                    <select id="herbicide_main">
+                                        <option value="Oui">Oui</option>
+                                        <option value="Non">Non</option>
+                                    </select>
+                                    <i class="fas fa-info-circle info-icon"></i>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="insecticide_main">J'utilise des produits contre les insectes</label>
+                                    <select id="insecticide_main">
+                                        <option value="Oui">Oui</option>
+                                        <option value="Non">Non</option>
+                                    </select>
+                                    <i class="fas fa-info-circle info-icon"></i>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="fongicide_main">J'utilise des produits contre les champignons</label>
+                                    <select id="fongicide_main">
+                                        <option value="Oui">Oui</option>
+                                        <option value="Non">Non</option>
+                                    </select>
+                                    <i class="fas fa-info-circle info-icon"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Onglet Économique -->
+                    <div id="economic-tab-main" class="tab-pane">
+                        <div class="section-title">
+                            <i class="fas fa-coins"></i>
+                            <h4>Données financières</h4>
+                        </div>
+                        
+                        <div class="form-grid">
+                            <div class="form-column">
+                                <div class="form-group">
+                                    <label for="cout_prod_main">Coût de production (FCFA/ha)</label>
+                                    <input type="number" id="cout_prod_main" placeholder="450000" min="0">
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="prix_vente_main">Prix de vente (FCFA/kg)</label>
+                                    <input type="number" id="prix_vente_main" placeholder="1000" min="0">
+                                </div>
+                            </div>
+                            
+                            <div class="form-column">
+                                <div class="form-group">
+                                    <label for="production_reelle_main">Production réelle (kg/ha)</label>
+                                    <input type="number" id="production_reelle_main" placeholder="850" min="0">
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="revenu_total_main">Revenu total (FCFA)</label>
+                                    <input type="number" id="revenu_total_main" placeholder="850000" min="0" readonly>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Onglet Géographique -->
+                    <div id="geographic-tab-main" class="tab-pane">
+                        <div class="section-title">
+                            <i class="fas fa-globe"></i>
+                            <h4>Localisation et climat</h4>
+                        </div>
+                        
+                        <div class="form-grid">
+                            <div class="form-column">
+                                <div class="form-group">
+                                    <label for="region_main">Région</label>
+                                    <select id="region_main">
+                                        <option value="Indenie-Djuablin">Indenie-Djuablin</option>
+                                        <option value="Yamoussoukro">Yamoussoukro</option>
+                                        <option value="La Me">La Me</option>
+                                        <option value="San-Pedro">San-Pedro</option>
+                                        <option value="Grand-Ponts">Grand-Ponts</option>
+                                    </select>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="pluviometrie_main">Combien il pleut</label>
+                                    <select id="pluviometrie_main">
+                                        <option value="Faible">Faible</option>
+                                        <option value="Moyenne">Moyenne</option>
+                                        <option value="Élevée">Élevée</option>
+                                    </select>
+                                </div>
+                            </div>
+                            
+                            <div class="form-column">
+                                <div class="form-group">
+                                    <label for="temperature_main">Température moyenne (°C)</label>
+                                    <input type="number" id="temperature_main" placeholder="25" step="0.1" min="0">
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="humidite_main">Humidité relative (%)</label>
+                                    <input type="number" id="humidite_main" placeholder="80" min="0" max="100">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Bouton de soumission -->
+            <button class="btn btn-primary btn-full btn-submit-main" onclick="submitAnnualDataMain()">
+                <i class="fas fa-save"></i>
+                ENREGISTRER MES DONNÉES
+            </button>
+        </div>
+    </section>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
